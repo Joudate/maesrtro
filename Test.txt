@@ -62,6 +62,6 @@ gantt
   Homologation — Réglementaire (Crédit Bureau…) :active, c_hom_reg, 2026-03-01, 2026-04-15
   Homologation — RETAIL-INFO-COMPO (Pilotage…)  :active, c_hom_retail, 2026-04-16, 2026-05-15
   Homologation — Finance (Rentabilité)         :active, c_hom_fin,   2026-05-16, 2026-05-31
-  Préparation CAB                               :active, c_prep_cab,  2026-06-15, 2026-06-30
-  Homologation technique & MEP Final — Tous les périmetres     :active, c_hom_p234,  2026-04-01, 2026-07-01
+  Homologation technique — Tous les périmetres     :active, c_hom_p234,  2026-04-01, 2026-06-14
+  Préparation MEP & passage CAB                       :active, c_prep_cab,  2026-06-15, 2026-06-30
   Post MEP    :active, c_hom_p234,  2026-07-01, 2026-07-15
