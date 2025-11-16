@@ -1,53 +1,17 @@
-%%{init: {
-  "theme": "base",
-  "themeVariables": {
-    /* ---------------- PALETTE GLOBALE ---------------- */
-    "fontFamily": "Inter, Segoe UI, Roboto, system-ui, -apple-system, Arial, sans-serif",
-    "background": "#FFFFFF", /* Fond blanc pour un look 'papier' classique */
-    "lineColor": "#D1D5DB",  /* Lignes de grille/séparation gris très clair */
-    
-    /* ---------------- COULEURS PRIMAIRES (Barres Actives) ---------------- */
-    "primaryColor": "#2563EB",       /* Bleu profond et institutionnel pour les barres actives */
-    "primaryTextColor": "#FFFFFF",
-    "primaryBorderColor": "#1D4ED8", /* Bleu légèrement plus foncé pour les bordures */
-    
-    /* ---------------- COULEURS SECONDAIRES (Arrière-plans et Texte) ---------------- */
-    "secondaryColor": "#1F2937",     /* Gris foncé / Bleu marine pour les titres ou le texte principal */
-    "tertiaryColor": "#F3F4F6",      /* Arrière-plan de section très clair */
-    
-    /* ---------------- GANTT SPECIFIQUE ---------------- */
-    "ganttSectionBkgColor": "#E5E7EB", /* Gris neutre pour la Section 1 (alterné) */
-    "ganttSectionBkgColor2": "#F9FAFB", /* Gris très clair pour la Section 2 (alterné) */
-    "ganttAxisFontSize": "12px",
-    "ganttGridLineColor": "#E5E7EB",
-    
-    /* ---------------- STATUTS DES TACHES ---------------- */
-    "ganttTaskColor": "#4B82F6",       /* Bleu légèrement plus clair pour les tâches actives par défaut */
-    "ganttTaskTextColor": "#FFFFFF",
-    
-    "ganttTaskActiveColor": "#F59E0B", /* Orange vif (gardé) pour un appel à l'action clair */
-    
-    "ganttTaskDoneColor": "#10B981",    /* Vert succès (inchangé) pour les tâches terminées */
-    "ganttTaskDoneTextColor": "#064E3B",
-    
-    "ganttTaskLateColor": "#DC2626"     /* Rouge alerte pour les tâches en retard */
-  }
-}}%%
-
+---
+config:
+  theme: forest
+---
 gantt
   title Planification du Projet MEP
   dateFormat YYYY-MM-DD
   axisFormat %d/%m/%Y
   todayMarker stroke-width:1,stroke:#9CA3AF,opacity:0.1
-
-  %% Section 1: Conception & Planification MEP
   section Conception
   Data Mapping/Data Assesement — Autorisations         :done,    a_dm_aut, 2025-06-01, 2025-08-31
   Data Mapping/Data Assesement — Crédit                :done,    a_dm_cre, 2025-06-01, 2025-08-31
   Data Mapping/Data Assesement — Garanties             :done,    a_dm_gar, 2025-06-01, 2025-08-31
   Contrat d'interface - Cartographie                   :done,    a_model,  after a_dm_gar, 37d
-
-  %% Section 2: Travaux de réalisation
   section Travaux de réalisation
   Préparation jeux de test (Autorisation - Garanties - Crédit (Focus Crédit Conso)):done,    b_prep_test, 2025-10-07, 2025-10-31
   Dev. jobs STG/ODS (Source Data PLI)                  :done,    b_dev_stg, 2025-10-01, 2025-10-31
@@ -63,8 +27,6 @@ gantt
   Test d'intégration des données Garanties      :active, b_test_credit, after b_int_rest, 2026-02-15
   Test d'intégration données autorisations   :active, b_test_aut,    2026-02-16, 2026-02-21
   Test d'intégration données Credits       :active, b_test_gar,    2026-02-22, 2026-03-01
-
-  %% Section 3: Homologation & Préparation MEP
   section Homologation & Préparation MEP
   Préparation CAST                     :active, c_prep_casi, 2025-10-01, 2025-12-31
   Homologation — Réglementaire (Crédit Bureau…) :active, c_hom_reg, 2026-03-01, 2026-04-15
