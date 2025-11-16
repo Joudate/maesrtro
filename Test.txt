@@ -30,7 +30,7 @@ gantt
   title Planification du Projet MEP
   dateFormat YYYY-MM-DD
   axisFormat %d/%m/%Y
-  todayMarker stroke-width:1,stroke:#9CA3AF,opacity:0.8
+  todayMarker stroke-width:1,stroke:#9CA3AF,opacity:0.1
 
   %% Section 1: Conception & Planification MEP
   section Conception
