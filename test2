@@ -3,7 +3,7 @@ config:
   theme: forest
 ---
 gantt
-  title Planification du Projet MEP
+  title Planification Vertical Crédit BI LOCAL (y compris le Produit Pilote).
   dateFormat YYYY-MM-DD
   axisFormat %d/%m/%Y
   todayMarker stroke-width:1,stroke:#9CA3AF,opacity:0.1
@@ -19,7 +19,7 @@ gantt
   Test d'intégration crédit Conso.     :active,  b_test_fc,  after b_int_fc, 10d
   Packaging & déploiement Extracteur HF + Test :active,  b_pkg,      after b_dev_stg, 2025-11-30
   Homologation Crédit Conso (LAB-IT)   :active,  b_hom_fc,   after b_test_fc, 2025-12-31
-  Déploiement Extracteur HF  & Préparation MEP — Produit Pilote :active,  b_hom_p1,   2026-01-01, 2026-01-21
+  Déploiement Extracteur HT  & Préparation MEP — Produit Pilote :active,  b_hom_p1,   2026-01-01, 2026-01-21
   MEP  & Post MEP — Produit Pilote :active,  b_hom_p1,   2026-01-21, 2026-02-01
   Intégration & transfo (Garanties)   :active, b_int_autu, 2025-11-01, 2025-11-30
   Intégration & transfo (Autorisations)       :active, b_int_gartu, 2025-12-01, 2025-12-30
