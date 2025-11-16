@@ -1,35 +1,67 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "fontFamily": "Inter, Segoe UI, Roboto, system-ui, -apple-system, Arial, sans-serif",
+    "primaryColor": "#0B5FFF",
+    "primaryTextColor": "#111827",
+    "primaryBorderColor": "#0B5FFF",
+    "lineColor": "#E5E7EB",
+    "secondaryColor": "#111827",
+    "tertiaryColor": "#F3F4F6",
+    "background": "#FFFFFF",
+
+    /* Gantt finesse */
+    "ganttHeaderHeight": "32",
+    "ganttBarHeight": "22",
+    "ganttBarGap": "6",
+    "ganttSectionBkgColor": "#F9FAFB",
+    "ganttSectionBkgColor2": "#FFFFFF",
+    "ganttTaskColor": "#0B5FFF",
+    "ganttTaskTextColor": "#FFFFFF",
+    "ganttTaskLateColor": "#EF4444",
+    "ganttTaskDoneColor": "#10B981",
+    "ganttTaskDoneTextColor": "#064E3B",
+    "ganttTaskActiveColor": "#F59E0B",
+    "ganttAxisFontSize": "12px",
+    "ganttGridLineColor": "#E5E7EB"
+  }
+}}%%
 gantt
-    title Planification du Projet MEP
-    dateFormat DD/MM/YYYY
-    
-    %% Section 1: Conception & Planification MEP
-    section Conception & Planification MEP
-    Data Mapping: module autorisations     :done, 01/05/2025, 31/08/2025
-    Data Mapping: module crédit           :done, 01/05/2025, 31/08/2025
-    Data Mapping: module garanties         :done, 01/05/2025, 31/08/2025
-    Modélisation: Élaboration du contrat d'interface :done, 01/09/2025, 30/09/2025
-    
-    %% Section 2: Travaux de réalisation
-    section Travaux de réalisation
-    Développement des jobs STG/ODS                :done, 01/10/2025, 31/10/2025
-    Packaging et déploiement serveur PU HF         :active, 22/11/2025, 30/11/2025
-    Préparation Jeux de test (périmètre engagement) :done, 01/10/2025, 31/10/2025
-    Intégration & transfo. données (Focus-Crédit Conso) :active, 01/11/2025, 21/11/2025
-    Test d'intégration données crédit Conso.       :active, 22/11/2025, 30/11/2025
-    Homologation Crédit conso (LAB-IT)             :active, 01/12/2025, 31/12/2025
-    Intégration & transfo. données (Reste type Crédit) :active, 22/01/2026, 31/01/2026
-    Test d'intégration des données crédit          :active, 22/01/2026, 01/02/2026
-    Intégration & transfo. données (autorisations TU) :active, 01/11/2025, 30/11/2025
-    Test d'intégration des données autorisations   :active, 01/02/2026, 07/02/2026
-    Intégration & transfo. données (garanties TU)    :active, 01/12/2025, 30/12/2025
-    Test d'intégration des données garanties       :active, 08/02/2026, 15/02/2026
-    
-    %% Section 3: Homologation & Préparation MEP
-    section Homologation & Préparation MEP
-    Homologation: Réglementaire (Crédit Bureau...) :active, 15/02/2026, 31/03/2026
-    Homologation: RETAIL-INFO-COMPO (Pilotage...)  :active, 01/04/2026, 15/05/2026
-    Homologation: Finance (Rentabilité)           :active, 14/05/2026, 31/05/2026
-    Préparation CASI                               :active, 01/10/2025, 31/12/2025
-    Préparation CAB                                :active, 15/06/2026, 30/06/2026
-    Homologation technique et MEP Part1            :active, 01/01/2026, 21/01/2026
-    Homologation technique et MEP Part 2+3+4       :active, 01/04/2026, 30/06/2026
+  title Planification du Projet MEP
+  dateFormat YYYY-MM-DD
+  axisFormat %d/%m/%Y
+  todayMarker stroke-width:2,stroke:#E11D48,opacity:0.6
+
+  %% Section 1: Conception & Planification MEP
+  section Conception
+  Data Mapping/Data Assesement — Autorisations         :done,    a_dm_aut, 2025-06-01, 2025-08-31
+  Data Mapping/Data Assesement — Crédit                :done,    a_dm_cre, 2025-06-01, 2025-08-31
+  Data Mapping/Data Assesement — Garanties             :done,    a_dm_gar, 2025-06-01, 2025-08-31
+  Contrat d'interface - Cartographie                   :done,    a_model,  after a_dm_gar, 37d
+
+  %% Section 2: Travaux de réalisation
+  section Travaux de réalisation
+  Préparation jeux de test (Autorisation - Garanties - Crédit (Focus Crédit Conso)):done,    b_prep_test, 2025-10-07, 2025-10-31
+  Dev. jobs STG/ODS (Source Data PLI)                  :done,    b_dev_stg, 2025-10-01, 2025-10-31
+  Intégration & transfo (Focus Crédit Conso) :active, b_int_fc, 2025-11-01, 2025-11-21
+  Test d'intégration crédit Conso.     :active,  b_test_fc,  after b_int_fc, 10d
+  Packaging & déploiement Extracteur HF + Test :active,  b_pkg,      after b_dev_stg, 2025-11-30
+  Homologation Crédit Conso (LAB-IT)   :active,  b_hom_fc,   after b_test_fc, 2025-12-31
+  Déploiement Extracteur HF  & Préparation MEP — Produit Pilote :active,  b_hom_p1,   2026-01-01, 2026-01-21
+  MEP  & Post MEP — Produit Pilote :active,  b_hom_p1,   2026-01-21, 2026-02-01
+  Intégration & transfo (Garanties)   :active, b_int_autu, 2025-11-01, 2025-11-30
+  Intégration & transfo (Autorisations)       :active, b_int_gartu, 2025-12-01, 2025-12-30
+  Intégration & transfo (Reste types Crédit) :active, b_int_rest, 2026-01-01, 2026-01-31
+  Test d'intégration des données Garanties      :active, b_test_credit, after b_int_rest, 2026-02-15
+  Test d'intégration données autorisations   :active, b_test_aut,    2026-02-16, 2026-02-21
+  Test d'intégration données Credits       :active, b_test_gar,    2026-02-22, 2026-03-01
+
+  %% Section 3: Homologation & Préparation MEP
+  section Homologation & Préparation MEP
+  Préparation CAST                     :active, c_prep_casi, 2025-10-01, 2025-12-31
+  Homologation — Réglementaire (Crédit Bureau…) :active, c_hom_reg, 2026-03-01, 2026-04-15
+  Homologation — RETAIL-INFO-COMPO (Pilotage…)  :active, c_hom_retail, 2026-04-16, 2026-05-15
+  Homologation — Finance (Rentabilité)         :active, c_hom_fin,   2026-05-16, 2026-05-31
+  Préparation CAB                               :active, c_prep_cab,  2026-06-15, 2026-06-30
+  Homologation technique & MEP Final — Tous les périmetres     :active, c_hom_p234,  2026-04-01, 2026-07-01
+  Post MEP    :active, c_hom_p234,  2026-07-01, 2026-07-15
